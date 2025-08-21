@@ -1,0 +1,232 @@
+[
+  {
+    "id": "cherry-blossom",
+    "name": "樱花飘落",
+    "categoryId": "floral",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=delicate%20cherry%20blossom%20pattern%20with%20pink%20petals%20falling%20on%20white%20background%20elegant%20floral%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20cherry%20blossom%20pattern%20with%20pink%20petals%20and%20branches%20on%20white%20background%20for%20paper%20printing&image_size=portrait_4_3",
+    "tags": ["春天", "粉色", "浪漫", "花卉"],
+    "createdAt": "2024-01-15T10:30:00Z",
+    "updatedAt": "2024-01-15T10:30:00Z"
+  },
+  {
+    "id": "rose-garden",
+    "name": "玫瑰花园",
+    "categoryId": "floral",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=elegant%20rose%20garden%20pattern%20with%20red%20roses%20and%20green%20leaves%20vintage%20floral%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20rose%20garden%20pattern%20with%20detailed%20red%20roses%20and%20foliage%20for%20decorative%20paper&image_size=portrait_4_3",
+    "tags": ["玫瑰", "红色", "经典", "花园"],
+    "createdAt": "2024-01-15T11:00:00Z",
+    "updatedAt": "2024-01-15T11:00:00Z"
+  },
+  {
+    "id": "geometric-triangles",
+    "name": "几何三角",
+    "categoryId": "geometric",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=modern%20geometric%20triangle%20pattern%20in%20teal%20and%20gold%20colors%20minimalist%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20geometric%20triangle%20pattern%20with%20teal%20gold%20and%20white%20colors%20modern%20abstract%20design&image_size=portrait_4_3",
+    "tags": ["现代", "几何", "蓝绿色", "金色"],
+    "createdAt": "2024-01-15T11:30:00Z",
+    "updatedAt": "2024-01-15T11:30:00Z"
+  },
+  {
+    "id": "hexagon-mosaic",
+    "name": "六角马赛克",
+    "categoryId": "geometric",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=hexagon%20mosaic%20pattern%20in%20blue%20and%20white%20colors%20geometric%20tile%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20hexagon%20mosaic%20pattern%20with%20various%20blue%20shades%20and%20white%20geometric%20design&image_size=portrait_4_3",
+    "tags": ["六角形", "马赛克", "蓝色", "几何"],
+    "createdAt": "2024-01-15T12:00:00Z",
+    "updatedAt": "2024-01-15T12:00:00Z"
+  },
+  {
+    "id": "christmas-stars",
+    "name": "圣诞星光",
+    "categoryId": "holiday",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=christmas%20star%20pattern%20with%20gold%20stars%20and%20red%20background%20festive%20holiday%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20christmas%20star%20pattern%20with%20golden%20stars%20on%20deep%20red%20background%20holiday%20decoration&image_size=portrait_4_3",
+    "tags": ["圣诞", "星星", "金色", "红色"],
+    "createdAt": "2024-01-15T12:30:00Z",
+    "updatedAt": "2024-01-15T12:30:00Z"
+  },
+  {
+    "id": "spring-festival",
+    "name": "春节喜庆",
+    "categoryId": "holiday",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20new%20year%20pattern%20with%20red%20lanterns%20and%20gold%20decorations%20festive%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20chinese%20new%20year%20pattern%20with%20red%20lanterns%20gold%20coins%20and%20traditional%20elements&image_size=portrait_4_3",
+    "tags": ["春节", "灯笼", "红色", "传统"],
+    "createdAt": "2024-01-15T13:00:00Z",
+    "updatedAt": "2024-01-15T13:00:00Z"
+  },
+  {
+    "id": "sunset-gradient",
+    "name": "日落渐变",
+    "categoryId": "gradient",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=sunset%20gradient%20from%20orange%20to%20purple%20smooth%20color%20transition%20abstract%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=beautiful%20sunset%20gradient%20background%20from%20warm%20orange%20to%20deep%20purple%20smooth%20transition&image_size=portrait_4_3",
+    "tags": ["日落", "渐变", "橙色", "紫色"],
+    "createdAt": "2024-01-15T13:30:00Z",
+    "updatedAt": "2024-01-15T13:30:00Z"
+  },
+  {
+    "id": "ocean-blue",
+    "name": "海洋蓝调",
+    "categoryId": "gradient",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=ocean%20blue%20gradient%20from%20light%20to%20deep%20blue%20water%20inspired%20color%20transition&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=serene%20ocean%20blue%20gradient%20background%20from%20light%20aqua%20to%20deep%20navy%20blue&image_size=portrait_4_3",
+    "tags": ["海洋", "蓝色", "渐变", "宁静"],
+    "createdAt": "2024-01-15T14:00:00Z",
+    "updatedAt": "2024-01-15T14:00:00Z"
+  },
+  {
+    "id": "victorian-damask",
+    "name": "维多利亚锦缎",
+    "categoryId": "vintage",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=victorian%20damask%20pattern%20in%20gold%20and%20burgundy%20colors%20ornate%20vintage%20design&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20victorian%20damask%20pattern%20with%20intricate%20gold%20ornaments%20on%20burgundy%20background&image_size=portrait_4_3",
+    "tags": ["维多利亚", "锦缎", "金色", "复古"],
+    "createdAt": "2024-01-15T14:30:00Z",
+    "updatedAt": "2024-01-15T14:30:00Z"
+  },
+  {
+    "id": "art-deco",
+    "name": "装饰艺术",
+    "categoryId": "vintage",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=art%20deco%20pattern%20with%20geometric%20shapes%20in%20black%20and%20gold%20vintage%201920s%20style&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=seamless%20art%20deco%20pattern%20with%20geometric%20elements%20black%20gold%20and%20white%20vintage%20design&image_size=portrait_4_3",
+    "tags": ["装饰艺术", "几何", "黑金", "1920s"],
+    "createdAt": "2024-01-15T15:00:00Z",
+    "updatedAt": "2024-01-15T15:00:00Z"
+  },
+  {
+    "id": "tian-zi-ge",
+    "name": "田字格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20tian%20zi%20ge%20grid%20paper%20with%20square%20boxes%20divided%20into%20four%20sections%20for%20chinese%20character%20writing%20practice&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20tian%20zi%20ge%20grid%20paper%20template%20with%20evenly%20spaced%20square%20boxes%20each%20divided%20by%20cross%20lines%20for%20chinese%20writing&image_size=portrait_4_3",
+    "tags": ["田字格", "中文", "练字", "汉字"],
+    "createdAt": "2024-01-15T16:00:00Z",
+    "updatedAt": "2024-01-15T16:00:00Z"
+  },
+  {
+    "id": "mi-zi-ge",
+    "name": "米字格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20mi%20zi%20ge%20grid%20paper%20with%20square%20boxes%20divided%20by%20diagonal%20and%20cross%20lines%20forming%20eight%20triangles&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20mi%20zi%20ge%20grid%20paper%20template%20with%20square%20boxes%20divided%20by%20cross%20and%20diagonal%20lines%20for%20chinese%20calligraphy&image_size=portrait_4_3",
+    "tags": ["米字格", "中文", "书法", "练字"],
+    "createdAt": "2024-01-15T16:30:00Z",
+    "updatedAt": "2024-01-15T16:30:00Z"
+  },
+  {
+    "id": "jiu-gong-ge",
+    "name": "九宫格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20jiu%20gong%20ge%20nine%20palace%20grid%20paper%20with%20square%20boxes%20divided%20into%20nine%20equal%20sections&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20jiu%20gong%20ge%20grid%20paper%20template%20with%20square%20boxes%20divided%20into%20nine%20equal%20sections%20for%20chinese%20writing&image_size=portrait_4_3",
+    "tags": ["九宫格", "中文", "练字", "结构"],
+    "createdAt": "2024-01-15T17:00:00Z",
+    "updatedAt": "2024-01-15T17:00:00Z"
+  },
+  {
+    "id": "calligraphy-large-grid",
+    "name": "毛笔大格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20calligraphy%20large%20grid%20paper%20with%20big%20square%20boxes%20for%20brush%20writing%20practice&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20large%20grid%20paper%20template%20with%20spacious%20square%20boxes%20for%20chinese%20brush%20calligraphy%20practice&image_size=portrait_4_3",
+    "tags": ["毛笔", "书法", "大格", "练字"],
+    "createdAt": "2024-01-15T17:30:00Z",
+    "updatedAt": "2024-01-15T17:30:00Z"
+  },
+  {
+    "id": "calligraphy-vertical",
+    "name": "竖排书法纸",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=traditional%20chinese%20vertical%20calligraphy%20paper%20with%20vertical%20columns%20and%20guide%20lines&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20vertical%20calligraphy%20paper%20template%20with%20vertical%20columns%20for%20traditional%20chinese%20writing&image_size=portrait_4_3",
+    "tags": ["竖排", "书法", "传统", "毛笔"],
+    "createdAt": "2024-01-15T18:00:00Z",
+    "updatedAt": "2024-01-15T18:00:00Z"
+  },
+  {
+    "id": "calligraphy-poem",
+    "name": "诗词格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=chinese%20poetry%20writing%20paper%20with%20vertical%20columns%20and%20title%20section%20for%20classical%20poems&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=elegant%20poetry%20writing%20paper%20template%20with%20vertical%20columns%20title%20area%20and%20signature%20space&image_size=portrait_4_3",
+    "tags": ["诗词", "古诗", "书法", "文学"],
+    "createdAt": "2024-01-15T18:30:00Z",
+    "updatedAt": "2024-01-15T18:30:00Z"
+  },
+  {
+    "id": "english-four-line",
+    "name": "英语四线三格",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=english%20four%20line%20three%20space%20writing%20paper%20with%20dotted%20middle%20line%20for%20alphabet%20practice&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20english%20four%20line%20writing%20paper%20template%20with%20solid%20and%20dotted%20lines%20for%20letter%20formation&image_size=portrait_4_3",
+    "tags": ["英语", "四线三格", "字母", "练字"],
+    "createdAt": "2024-01-15T19:00:00Z",
+    "updatedAt": "2024-01-15T19:00:00Z"
+  },
+  {
+    "id": "english-ruled",
+    "name": "英语横线纸",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=english%20ruled%20writing%20paper%20with%20horizontal%20lines%20for%20handwriting%20practice&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20ruled%20writing%20paper%20template%20with%20evenly%20spaced%20horizontal%20lines%20for%20english%20writing&image_size=portrait_4_3",
+    "tags": ["英语", "横线", "书写", "练习"],
+    "createdAt": "2024-01-15T19:30:00Z",
+    "updatedAt": "2024-01-15T19:30:00Z"
+  },
+  {
+    "id": "english-cursive",
+    "name": "英语花体练习",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=english%20cursive%20writing%20practice%20paper%20with%20slanted%20guide%20lines%20for%20script%20handwriting&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=elegant%20cursive%20writing%20paper%20template%20with%20slanted%20guidelines%20for%20english%20script%20practice&image_size=portrait_4_3",
+    "tags": ["英语", "花体", "斜体", "书法"],
+    "createdAt": "2024-01-15T20:00:00Z",
+    "updatedAt": "2024-01-15T20:00:00Z"
+  },
+  {
+    "id": "math-grid",
+    "name": "数学方格纸",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=math%20grid%20paper%20with%20small%20square%20grid%20for%20mathematical%20calculations%20and%20graphing&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20math%20grid%20paper%20template%20with%20fine%20square%20grid%20lines%20for%20calculations%20and%20geometry&image_size=portrait_4_3",
+    "tags": ["数学", "方格", "计算", "几何"],
+    "createdAt": "2024-01-15T20:30:00Z",
+    "updatedAt": "2024-01-15T20:30:00Z"
+  },
+  {
+    "id": "coordinate-paper",
+    "name": "坐标纸",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=coordinate%20grid%20paper%20with%20x%20and%20y%20axis%20for%20graphing%20mathematical%20functions&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20coordinate%20grid%20paper%20template%20with%20numbered%20x%20y%20axis%20for%20plotting%20graphs&image_size=portrait_4_3",
+    "tags": ["坐标", "函数", "图表", "数学"],
+    "createdAt": "2024-01-15T21:00:00Z",
+    "updatedAt": "2024-01-15T21:00:00Z"
+  },
+  {
+    "id": "dot-grid",
+    "name": "点阵纸",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=dot%20grid%20paper%20with%20evenly%20spaced%20dots%20for%20bullet%20journaling%20and%20note%20taking&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20dot%20grid%20paper%20template%20with%20subtle%20dots%20for%20flexible%20writing%20and%20drawing&image_size=portrait_4_3",
+    "tags": ["点阵", "笔记", "手账", "灵活"],
+    "createdAt": "2024-01-15T21:30:00Z",
+    "updatedAt": "2024-01-15T21:30:00Z"
+  },
+  {
+    "id": "music-staff",
+    "name": "五线谱",
+    "categoryId": "practice",
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=music%20staff%20paper%20with%20five%20horizontal%20lines%20for%20musical%20notation%20writing&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=clean%20music%20staff%20paper%20template%20with%20multiple%20staves%20for%20composing%20and%20music%20practice&image_size=portrait_4_3",
+    "tags": ["音乐", "五线谱", "作曲", "练习"],
+    "createdAt": "2024-01-15T22:00:00Z",
+    "updatedAt": "2024-01-15T22:00:00Z"
+  }
+]
