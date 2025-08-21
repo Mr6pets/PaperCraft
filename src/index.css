@@ -12,3 +12,84 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* 打印样式 - 简化版本 */
+@media print {
+  @page {
+    size: A4;
+    margin: 15mm;
+  }
+  
+  /* 隐藏所有元素 */
+  * {
+    visibility: hidden;
+  }
+  
+  /* 只显示打印预览区域 */
+  #print-preview-area {
+    visibility: visible !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: white !important;
+    z-index: 9999 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    padding: 10mm !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* 显示打印预览区域的所有子元素 */
+  #print-preview-area * {
+    visibility: visible !important;
+  }
+  
+  /* 优化内容容器 */
+  #print-preview-area > div {
+    background: white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    transform: none !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    display: block !important;
+  }
+  
+  /* 确保内容填满整个页面 */
+  #print-preview-area > div > div {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    display: block !important;
+  }
+  
+  /* 优化图片和SVG显示 - 填满整页 */
+  #print-preview-area img,
+  #print-preview-area svg {
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    max-height: none !important;
+    object-fit: fill !important;
+    image-rendering: crisp-edges !important;
+    shape-rendering: geometricPrecision !important;
+  }
+  
+  /* 隐藏边距指示器 */
+  #print-preview-area .border-dashed {
+    display: none !important;
+  }
+  
+  /* 确保颜色准确显示 */
+  #print-preview-area * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

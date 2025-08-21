@@ -114,12 +114,13 @@ const Preview = () => {
     addToPrintQueue(printJob);
     toast.success('已添加到打印队列');
     
-    // 模拟打印过程
+    // 使用CSS媒体查询打印预览区域
     setTimeout(() => {
+      // 直接调用打印，CSS媒体查询会处理显示逻辑
       window.print();
     }, 500);
   };
-
+  
   const handleDownload = () => {
     if (!style) return;
     
@@ -236,7 +237,7 @@ const Preview = () => {
             </div>
             
             {/* Preview Image */}
-            <div className="flex items-center justify-center bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF] rounded-lg p-4 sm:p-6 md:p-8 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
+            <div id="print-preview-area" className="flex items-center justify-center bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF] rounded-lg p-4 sm:p-6 md:p-8 min-h-[300px] sm:min-h-[400px] md:min-h-[500px]">
               <div 
                 className="bg-white shadow-lg relative"
                 style={{

@@ -22,7 +22,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] shadow-lg border-b border-[#0EA5E9]">
+    <nav className="bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] border-b border-[#0EA5E9]">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
