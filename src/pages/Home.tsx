@@ -47,18 +47,16 @@ export default function Home() {
       {/* Hero Section */}
       <section className="text-center py-8 sm:py-12">
         <div className="flex items-center justify-center mb-4 sm:mb-6">
-          <Sparkles className="text-[#10B981] mr-2 sm:mr-3" size={24} />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent leading-tight">
-            PaperCraft 纸艺工坊
-          </h1>
-          <Sparkles className="text-[#10B981] ml-2 sm:ml-3" size={24} />
+          <Sparkles className="text-[#0EA5E9] mr-2 sm:mr-3" size={24} />
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E293B] leading-tight">PaperCraft 纸艺工坊</h1>
+          <Sparkles className="text-[#0EA5E9] ml-2 sm:ml-3" size={24} />
         </div>
-        <p className="text-base sm:text-lg md:text-xl text-[#10B981] max-w-3xl mx-auto mb-6 sm:mb-8 px-4 text-center leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-[#0EA5E9] max-w-3xl mx-auto mb-6 sm:mb-8 px-4 text-center leading-relaxed">
           无需购买各种样式纸张，选择心仪的模板，实时预览效果，一键打印专属装饰纸张
         </p>
         <Link
           to="/gallery"
-          className="inline-flex items-center px-6 sm:px-8 py-3 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white rounded-lg hover:from-[#2563EB] hover:to-[#1D4ED8] transition-all duration-300 font-medium min-h-[48px] shadow-lg hover:shadow-xl"
+          className="inline-flex items-center px-6 sm:px-8 py-3 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded-lg hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 font-medium min-h-[48px] shadow-lg hover:shadow-xl border border-[#0EA5E9]"
         >
           开始探索
           <ArrowRight className="ml-2" size={18} />
@@ -67,16 +65,14 @@ export default function Home() {
 
       {/* Categories Section */}
       <section>
-        <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent mb-6 sm:mb-8 text-center">
-          纸张分类
-        </h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-[#1E293B] mb-6 sm:mb-8 text-center">纸张分类</h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6">
           {categories.map((category) => (
             <Link
               key={category.id}
               to={`/gallery/${category.id}`}
               onClick={() => handleCategoryClick(category.id)}
-              className="group bg-gradient-to-br from-white to-[#F0F9FF] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border-2 border-transparent hover:border-[#A855F7] hover:scale-105"
+              className="group bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-4 sm:p-6 text-center border-2 border-transparent hover:border-[#0EA5E9] hover:scale-105"
             >
               <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 mx-auto mb-2 sm:mb-3 md:mb-4 rounded-full overflow-hidden bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5]">
                 <img
@@ -91,8 +87,8 @@ export default function Home() {
                   }}
                 />
               </div>
-              <h3 className="font-semibold text-[#3B82F6] mb-2 text-sm sm:text-base group-hover:text-[#A855F7] transition-colors">{category.name}</h3>
-              <p className="text-xs sm:text-sm text-[#22C55E] group-hover:text-[#16A34A] transition-colors leading-relaxed hidden sm:block">
+              <h3 className="font-semibold text-[#0EA5E9] mb-2 text-sm sm:text-base group-hover:text-[#0284C7] transition-colors">{category.name}</h3>
+              <p className="text-xs sm:text-sm text-[#10B981] group-hover:text-[#059669] transition-colors leading-relaxed hidden sm:block">
                 {category.description}
               </p>
             </Link>
@@ -103,12 +99,12 @@ export default function Home() {
       {/* Popular Styles Section */}
       <section>
         <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#F97316] to-[#EA580C] bg-clip-text text-transparent">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1E293B]">
             热门推荐
           </h2>
           <Link
             to="/gallery"
-            className="text-[#3B82F6] hover:text-[#2563EB] font-medium flex items-center transition-colors"
+            className="text-[#0EA5E9] hover:text-[#0284C7] font-medium flex items-center transition-colors"
           >
             查看全部
             <ArrowRight className="ml-1" size={14} />
@@ -119,7 +115,7 @@ export default function Home() {
             <Link
               key={style.id}
               to={`/preview/${style.id}`}
-              className="group bg-gradient-to-br from-white to-[#FEF3F2] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-105"
+              className="group bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-105"
             >
               <div className="aspect-[4/3] overflow-hidden">
                 <img
@@ -135,14 +131,14 @@ export default function Home() {
                 />
               </div>
               <div className="p-3 sm:p-4">
-                <h3 className="font-semibold text-[#3B82F6] mb-2 group-hover:text-[#A855F7] transition-colors text-sm sm:text-base">
+                <h3 className="font-semibold text-[#0EA5E9] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base">
                   {style.name}
                 </h3>
                 <div className="flex flex-wrap gap-1">
                   {style.tags.slice(0, 3).map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs rounded-full shadow-sm"
+                      className="px-2 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] text-xs rounded-full shadow-sm border border-[#0EA5E9]"
                     >
                       {tag}
                     </span>

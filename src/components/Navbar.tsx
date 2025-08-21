@@ -22,13 +22,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white shadow-lg">
+    <nav className="bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] shadow-lg border-b border-[#0EA5E9]">
       <div className="container mx-auto px-3 sm:px-4">
         <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2 min-h-[44px] py-2">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#A855F7] to-[#9333EA] rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-base sm:text-lg">P</span>
+            <div className="w-7 h-7 sm:w-8 sm:h-8 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] rounded-lg flex items-center justify-center">
+              <span className="text-[#1E293B] font-bold text-base sm:text-lg">P</span>
             </div>
             <span className="text-lg sm:text-xl font-bold">PaperCraft</span>
           </Link>
@@ -46,8 +46,8 @@ const Navbar = () => {
                   to={item.path}
                   className={`flex items-center space-x-2 px-3 py-2 rounded-md transition-colors min-h-[44px] ${
                     isActive 
-                      ? 'bg-gradient-to-r from-[#A855F7] to-[#9333EA] text-white' 
-                      : 'hover:bg-[#4F46E5]'
+                      ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white' 
+                      : 'hover:bg-[#E0F2FE]'
                   }`}
                 >
                   <Icon size={18} />
@@ -65,16 +65,16 @@ const Navbar = () => {
                 placeholder="搜索纸张样式..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-64 px-4 py-2 pl-10 bg-white text-[#374151] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A855F7] border-2 border-transparent focus:border-[#3B82F6]"
+                className="w-64 px-4 py-2 pl-10 bg-white text-[#374151] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] border-2 border-[#0EA5E9] focus:border-[#0284C7]"
               />
-              <Search className="absolute left-3 top-2.5 text-[#3B82F6]" size={18} />
+              <Search className="absolute left-3 top-2.5 text-[#0EA5E9]" size={18} />
             </div>
           </form>
 
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-3 rounded-md hover:bg-[#0284C7] min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="md:hidden p-3 rounded-md hover:bg-[#E0F2FE] min-h-[44px] min-w-[44px] flex items-center justify-center"
           >
             <Menu size={20} />
           </button>
@@ -82,7 +82,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-3 border-t border-[#0284C7]">
+          <div className="md:hidden py-3 border-t border-[#0EA5E9]">
             <div className="flex flex-col space-y-1">
               {navItems.map((item) => {
                 const Icon = item.icon;
@@ -96,8 +96,8 @@ const Navbar = () => {
                     onClick={() => setIsMenuOpen(false)}
                     className={`flex items-center space-x-2 px-3 py-3 rounded-md transition-colors min-h-[48px] ${
                       isActive 
-                        ? 'bg-gradient-to-r from-[#A855F7] to-[#9333EA] text-white' 
-                        : 'hover:bg-[#4F46E5]'
+                        ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white' 
+                        : 'hover:bg-[#E0F2FE]'
                     }`}
                   >
                     <Icon size={18} />
@@ -114,9 +114,9 @@ const Navbar = () => {
                     placeholder="搜索纸张样式..."
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
-                    className="w-full px-4 py-3 pl-10 bg-white text-[#374151] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A855F7] border-2 border-transparent focus:border-[#3B82F6] text-base min-h-[48px]"
+                    className="w-full px-4 py-3 pl-10 bg-white text-[#374151] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] border-2 border-[#0EA5E9] focus:border-[#0284C7] text-base min-h-[48px]"
                   />
-                  <Search className="absolute left-3 top-3.5 text-[#3B82F6]" size={18} />
+                  <Search className="absolute left-3 top-3.5 text-[#0EA5E9]" size={18} />
                 </div>
               </form>
             </div>

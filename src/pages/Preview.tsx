@@ -145,7 +145,7 @@ const Preview = () => {
   if (!style) {
     return (
       <div className="text-center py-12">
-        <p className="text-[#10B981] text-lg mb-4">样式不存在</p>
+        <p className="text-[#0EA5E9] text-lg mb-4">样式不存在</p>
         <Link to="/gallery" className="text-[#0EA5E9] hover:underline">
           返回样式库
         </Link>
@@ -169,12 +169,12 @@ const Preview = () => {
             <span className="text-sm sm:text-base">返回样式库</span>
           </Link>
           <div>
-            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent leading-tight">{style.name}</h1>
+            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1E293B] leading-tight">{style.name}</h1>
             <div className="flex flex-wrap gap-1 sm:gap-2 mt-2">
               {style.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-2 py-1 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white text-xs sm:text-sm rounded-full shadow-sm"
+                  className="px-2 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] text-xs sm:text-sm rounded-full shadow-sm border border-[#0EA5E9]"
                 >
                   {tag}
                 </span>
@@ -186,14 +186,14 @@ const Preview = () => {
         <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={handleDownload}
-            className="flex items-center px-3 sm:px-4 py-3 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#374151] rounded-lg hover:bg-gradient-to-r hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-colors text-sm sm:text-base min-h-[48px]"
+            className="flex items-center px-3 sm:px-4 py-3 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded-lg hover:bg-gradient-to-r hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-colors text-sm sm:text-base min-h-[48px] border border-[#0EA5E9]"
           >
             <Download className="mr-1 sm:mr-2" size={16} />
             <span className="hidden sm:inline">下载</span>
           </button>
           <button
             onClick={handlePrint}
-            className="flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white rounded-lg hover:from-[#16A34A] hover:to-[#15803D] transition-all duration-300 text-sm sm:text-base min-h-[48px] shadow-lg hover:shadow-xl"
+            className="flex items-center px-4 sm:px-6 py-3 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white rounded-lg hover:from-[#0284C7] hover:to-[#059669] transition-all duration-300 text-sm sm:text-base min-h-[48px] shadow-lg hover:shadow-xl"
           >
             <Printer className="mr-1 sm:mr-2" size={16} />
             打印
@@ -207,7 +207,7 @@ const Preview = () => {
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-4 md:p-6">
             {/* Preview Controls */}
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
-              <h3 className="text-base sm:text-lg font-semibold text-[#1E293B]">预览</h3>
+              <h3 className="text-base sm:text-lg font-semibold text-[#0EA5E9]">预览</h3>
               <div className="flex items-center gap-1 sm:gap-2">
                 <button
                   onClick={handleZoomOut}
@@ -216,7 +216,7 @@ const Preview = () => {
                 >
                   <ZoomOut size={16} />
                 </button>
-                <span className="text-xs sm:text-sm text-[#3B82F6] min-w-[50px] sm:min-w-[60px] text-center px-2">
+                <span className="text-xs sm:text-sm text-[#0EA5E9] min-w-[50px] sm:min-w-[60px] text-center px-2">
                   {zoom}%
                 </span>
                 <button
@@ -339,11 +339,11 @@ const Preview = () => {
         <div className="space-y-4 sm:space-y-6">
           {/* Paper Size */}
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
-            <h3 className="text-base sm:text-lg font-semibold text-[#1E293B] mb-3 sm:mb-4">纸张尺寸</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-[#0EA5E9] mb-3 sm:mb-4">纸张尺寸</h3>
             <select
               value={paperSize}
               onChange={(e) => setPaperSize(e.target.value as PaperSize)}
-              className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent text-base min-h-[48px]"
+              className="w-full p-3 border-2 border-[#0EA5E9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0284C7] text-base min-h-[48px]"
             >
               {paperSizes.map((size) => (
                 <option key={size.value} value={size.value}>
@@ -352,7 +352,7 @@ const Preview = () => {
               ))}
             </select>
             {currentPaperSize && (
-              <p className="text-xs sm:text-sm text-[#3B82F6] mt-2">
+              <p className="text-xs sm:text-sm text-[#0EA5E9] mt-2">
                 尺寸: {currentPaperSize.width} × {currentPaperSize.height} mm
               </p>
             )}
@@ -360,12 +360,12 @@ const Preview = () => {
 
           {/* Print Settings */}
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
-            <h3 className="text-base sm:text-lg font-semibold bg-gradient-to-r from-[#F97316] to-[#EA580C] bg-clip-text text-transparent mb-3 sm:mb-4">打印设置</h3>
+            <h3 className="text-base sm:text-lg font-semibold text-[#1E293B] mb-3 sm:mb-4">打印设置</h3>
             
             <div className="space-y-3 sm:space-y-4">
               {/* Quality */}
               <div>
-                <label className="block text-xs sm:text-sm font-medium text-[#1E293B] mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-[#0EA5E9] mb-2">
                   打印质量
                 </label>
                 <select
@@ -374,7 +374,7 @@ const Preview = () => {
                     ...prev, 
                     quality: e.target.value as PrintSettings['quality']
                   }))}
-                  className="w-full p-3 border-2 border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#A855F7] focus:border-[#3B82F6] transition-all text-base min-h-[48px]"
+                  className="w-full p-3 border-2 border-[#0EA5E9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0284C7] transition-all text-base min-h-[48px]"
                 >
                   <option value="draft">草稿质量</option>
                   <option value="normal">标准质量</option>
@@ -384,7 +384,7 @@ const Preview = () => {
 
               {/* Color Mode */}
               <div>
-                <label className="block text-xs sm:text-sm font-medium text-[#1E293B] mb-2">
+                <label className="block text-xs sm:text-sm font-medium text-[#0EA5E9] mb-2">
                   颜色模式
                 </label>
                 <select
@@ -393,7 +393,7 @@ const Preview = () => {
                     ...prev, 
                     colorMode: e.target.value as PrintSettings['colorMode']
                   }))}
-                  className="w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-transparent text-base min-h-[48px]"
+                  className="w-full p-3 border-2 border-[#0EA5E9] rounded-md focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0284C7] text-base min-h-[48px]"
                 >
                   <option value="color">彩色</option>
                   <option value="grayscale">灰度</option>

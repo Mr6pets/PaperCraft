@@ -92,10 +92,10 @@ const Gallery = () => {
       {/* Header */}
       <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold text-[#1E293B]">
             {currentCategory ? currentCategory.name : '样式库'}
           </h1>
-          <p className="text-sm sm:text-base text-[#10B981] mt-1">
+          <p className="text-sm sm:text-base text-[#0EA5E9] mt-1">
             {currentCategory 
               ? currentCategory.description 
               : `共 ${filteredStyles.length} 个样式`
@@ -111,9 +111,9 @@ const Gallery = () => {
               placeholder="搜索样式..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full sm:w-64 px-4 py-3 pl-10 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A855F7] focus:border-[#3B82F6] text-base min-h-[48px] transition-all"
+              className="w-full sm:w-64 px-4 py-3 pl-10 border-2 border-[#0EA5E9] rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0EA5E9] focus:border-[#0284C7] text-base min-h-[48px] transition-all"
             />
-            <Search className="absolute left-3 top-3.5 text-[#3B82F6]" size={18} />
+            <Search className="absolute left-3 top-3.5 text-[#0EA5E9]" size={18} />
           </div>
           
           {/* View Mode Toggle */}
@@ -122,8 +122,8 @@ const Gallery = () => {
               onClick={() => setViewMode('grid')}
               className={`p-3 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewMode === 'grid' 
-                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white' 
-                  : 'text-[#10B981] hover:text-[#3B82F6]'
+                  ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white' 
+                  : 'text-[#0EA5E9] hover:text-[#0284C7]'
               }`}
             >
               <Grid size={18} />
@@ -132,8 +132,8 @@ const Gallery = () => {
               onClick={() => setViewMode('list')}
               className={`p-3 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewMode === 'list' 
-                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white' 
-                  : 'text-[#10B981] hover:text-[#3B82F6]'
+                  ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white' 
+                  : 'text-[#0EA5E9] hover:text-[#0284C7]'
               }`}
             >
               <List size={18} />
@@ -147,7 +147,7 @@ const Gallery = () => {
         <div className="lg:w-64 space-y-4 sm:space-y-6">
           {/* Category Filter */}
           <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
-            <h3 className="font-semibold bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent mb-3 flex items-center text-sm sm:text-base">
+            <h3 className="font-semibold text-[#1E293B] mb-3 flex items-center text-sm sm:text-base">
               <Filter className="mr-2" size={16} />
               分类筛选
             </h3>
@@ -156,8 +156,8 @@ const Gallery = () => {
                 onClick={() => handleCategoryFilter(null)}
                 className={`w-full text-left px-3 py-3 rounded-md transition-colors min-h-[44px] text-sm sm:text-base ${
                   !selectedCategory && !categoryParam
-                    ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white'
-                    : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#EFF6FF]'
+                    ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white'
+                    : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#ECFDF5]'
                 }`}
               >
                 全部分类
@@ -168,8 +168,8 @@ const Gallery = () => {
                   onClick={() => handleCategoryFilter(category.id)}
                   className={`w-full text-left px-3 py-3 rounded-md transition-colors min-h-[44px] text-sm sm:text-base ${
                     (selectedCategory === category.id || categoryParam === category.id)
-                      ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white'
-                      : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#EFF6FF]'
+                      ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white'
+                      : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#ECFDF5]'
                   }`}
                 >
                   {category.name}
@@ -181,7 +181,7 @@ const Gallery = () => {
           {/* Tags Filter */}
           {allTags.length > 0 && (
             <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
-              <h3 className="font-semibold bg-gradient-to-r from-[#F97316] to-[#EA580C] bg-clip-text text-transparent mb-3 text-sm sm:text-base">
+              <h3 className="font-semibold text-[#1E293B] mb-3 text-sm sm:text-base">
                 标签筛选
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -191,8 +191,8 @@ const Gallery = () => {
                     onClick={() => handleTagToggle(tag)}
                     className={`px-3 py-2 rounded-full text-sm transition-colors min-h-[36px] ${
                       selectedTags.includes(tag)
-                        ? 'bg-gradient-to-r from-[#A855F7] to-[#9333EA] text-white'
-                        : 'bg-gradient-to-r from-[#F3E8FF] to-[#EDE9FE] text-[#7C3AED] hover:from-[#E9D5FF] hover:to-[#DDD6FE]'
+                        ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white'
+                        : 'bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] hover:from-[#E0F2FE] hover:to-[#D1FAE5] border border-[#0EA5E9]'
                     }`}
                   >
                     {tag}
@@ -215,7 +215,7 @@ const Gallery = () => {
         <div className="flex-1">
           {filteredStyles.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-[#10B981] text-lg">暂无匹配的样式</p>
+              <p className="text-[#0EA5E9] text-lg">暂无匹配的样式</p>
             </div>
           ) : (
             <div className={`${
@@ -249,14 +249,14 @@ const Gallery = () => {
                     />
                   </div>
                   <div className="p-3 sm:p-4 flex-1">
-                    <h3 className="font-semibold text-[#1E293B] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base leading-tight">
+                    <h3 className="font-semibold text-[#0EA5E9] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base leading-tight">
                       {style.name}
                     </h3>
                     <div className="flex flex-wrap gap-1">
                       {style.tags.slice(0, viewMode === 'list' ? (window.innerWidth < 640 ? 3 : 5) : 3).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 bg-[#ECFDF5] text-[#059669] text-xs rounded-full"
+                          className="px-2 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] text-xs rounded-full border border-[#0EA5E9]"
                         >
                           {tag}
                         </span>

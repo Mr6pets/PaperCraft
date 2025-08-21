@@ -132,7 +132,7 @@ const PrintManager = () => {
     <div className="space-y-6">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent mb-6">打印管理</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-[#1E293B] mb-6">打印管理</h1>
         
         {/* Printer Status */}
         <div className="flex items-center gap-4">
@@ -142,7 +142,7 @@ const PrintManager = () => {
               printerStatus === 'connecting' ? 'bg-yellow-500 animate-pulse' :
               'bg-red-500'
             }`}></div>
-            <span className="text-sm text-[#3B82F6]">
+            <span className="text-sm text-[#0EA5E9]">
               打印机: {
                 printerStatus === 'connected' ? '已连接' :
                 printerStatus === 'connecting' ? '连接中...' :
@@ -154,21 +154,21 @@ const PrintManager = () => {
           {printerStatus === 'disconnected' ? (
             <button
               onClick={handleConnectPrinter}
-              className="px-4 py-2 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white rounded-lg hover:from-[#16A34A] hover:to-[#15803D] transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-4 py-2 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white rounded-lg hover:from-[#0284C7] hover:to-[#059669] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               连接打印机
             </button>
           ) : printerStatus === 'connected' ? (
             <button
               onClick={handleDisconnectPrinter}
-              className="px-4 py-2 bg-gradient-to-r from-[#22C55E] to-[#16A34A] text-white rounded-lg hover:from-[#16A34A] hover:to-[#15803D] transition-all duration-300 shadow-lg hover:shadow-xl"
+              className="px-4 py-2 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white rounded-lg hover:from-[#0284C7] hover:to-[#059669] transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               断开连接
             </button>
           ) : (
             <button
               disabled
-              className="px-4 py-2 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#3B82F6] rounded-lg cursor-not-allowed"
+              className="px-4 py-2 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded-lg cursor-not-allowed border border-[#0EA5E9]"
             >
               连接中...
             </button>
@@ -183,7 +183,7 @@ const PrintManager = () => {
           className={`flex-1 py-2 px-4 rounded-md transition-colors ${
             activeTab === 'queue'
               ? 'bg-[#0EA5E9] text-white'
-            : 'text-[#10B981] hover:text-[#0284C7]'
+            : 'text-[#0EA5E9] hover:text-[#0284C7]'
           }`}
         >
           打印队列 ({printQueue.length})
@@ -193,7 +193,7 @@ const PrintManager = () => {
           className={`flex-1 py-2 px-4 rounded-md transition-colors ${
             activeTab === 'history'
               ? 'bg-[#0EA5E9] text-white'
-            : 'text-[#10B981] hover:text-[#0284C7]'
+            : 'text-[#0EA5E9] hover:text-[#0284C7]'
           }`}
         >
           打印历史 ({printHistory.length})
@@ -205,8 +205,8 @@ const PrintManager = () => {
         <div className="bg-white rounded-lg shadow-md">
           {printQueue.length === 0 ? (
             <div className="text-center py-12">
-              <Printer className="mx-auto text-[#3B82F6] mb-4" size={48} />
-              <p className="text-[#10B981] text-lg mb-4">打印队列为空</p>
+              <Printer className="mx-auto text-[#0EA5E9] mb-4" size={48} />
+              <p className="text-[#0EA5E9] text-lg mb-4">打印队列为空</p>
               <Link
                 to="/gallery"
                 className="text-[#0EA5E9] hover:underline"
@@ -222,11 +222,11 @@ const PrintManager = () => {
                     <div className="flex items-center gap-4">
                       {getStatusIcon(job.status)}
                       <div>
-                        <h3 className="font-semibold text-[#1E293B]">{job.styleName}</h3>
-                        <p className="text-sm text-[#3B82F6]">
+                        <h3 className="font-semibold text-[#0EA5E9]">{job.styleName}</h3>
+                        <p className="text-sm text-[#10B981]">
                           {job.paperSize} · {job.printSettings.quality} · {job.printSettings.copies}份
                         </p>
-                        <p className="text-xs text-[#10B981]">
+                        <p className="text-xs text-[#0EA5E9]">
                           {new Date(job.createdAt).toLocaleString()}
                         </p>
                       </div>
@@ -241,14 +241,14 @@ const PrintManager = () => {
                               style={{ width: `${job.progress}%` }}
                             ></div>
                           </div>
-                          <span className="text-sm text-[#3B82F6]">{job.progress}%</span>
+                          <span className="text-sm text-[#0EA5E9]">{job.progress}%</span>
                         </div>
                       )}
                       
                       <div className="flex items-center gap-2">
                         <Link
                           to={`/preview/${job.styleId}`}
-                          className="p-2 text-[#10B981] hover:text-[#0284C7] transition-colors"
+                          className="p-2 text-[#0EA5E9] hover:text-[#0284C7] transition-colors"
                           title="查看样式"
                         >
                           <Eye size={18} />
@@ -257,7 +257,7 @@ const PrintManager = () => {
                         {job.status === 'pending' && (
                           <button
                             onClick={() => handleStartPrint(job.id)}
-                            className="px-3 py-1 bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white rounded hover:from-[#2563EB] hover:to-[#1D4ED8] transition-all duration-300 shadow-sm text-sm"
+                            className="px-3 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 shadow-sm text-sm border border-[#0EA5E9]"
                             disabled={printerStatus !== 'connected'}
                           >
                             开始打印
@@ -286,7 +286,7 @@ const PrintManager = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-3 text-sm text-[#3B82F6]">
+                  <div className="mt-3 text-sm text-[#0EA5E9]">
                     状态: {getStatusText(job.status)}
                   </div>
                 </div>
@@ -298,8 +298,8 @@ const PrintManager = () => {
         <div className="bg-white rounded-lg shadow-md">
           {printHistory.length === 0 ? (
             <div className="text-center py-12">
-              <Clock className="mx-auto text-[#3B82F6] mb-4" size={48} />
-              <p className="text-[#10B981] text-lg">暂无打印历史</p>
+              <Clock className="mx-auto text-[#0EA5E9] mb-4" size={48} />
+              <p className="text-[#0EA5E9] text-lg">暂无打印历史</p>
             </div>
           ) : (
             <div className="divide-y divide-gray-200">
@@ -309,13 +309,13 @@ const PrintManager = () => {
                     <div className="flex items-center gap-4">
                       <CheckCircle className="text-green-500" size={20} />
                       <div>
-                        <h3 className="font-semibold text-[#1E293B]">
+                        <h3 className="font-semibold text-[#0EA5E9]">
                           样式 ID: {record.styleId}
                         </h3>
-                        <p className="text-sm text-[#3B82F6]">
+                        <p className="text-sm text-[#10B981]">
                           {record.paperSize} · {record.printSettings.quality} · {record.printSettings.copies}份
                         </p>
-                        <p className="text-xs text-[#10B981]">
+                        <p className="text-xs text-[#0EA5E9]">
                           {new Date(record.createdAt).toLocaleString()}
                         </p>
                       </div>
@@ -324,7 +324,7 @@ const PrintManager = () => {
                     <div className="flex items-center gap-2">
                       <Link
                         to={`/preview/${record.styleId}`}
-                        className="p-2 text-[#10B981] hover:text-[#0284C7] transition-colors"
+                        className="p-2 text-[#0EA5E9] hover:text-[#0284C7] transition-colors"
                         title="查看样式"
                       >
                         <Eye size={18} />
@@ -332,7 +332,7 @@ const PrintManager = () => {
                       
                       <button
                         onClick={() => handleReprintFromHistory(record)}
-                        className="flex items-center px-3 py-1 bg-gradient-to-r from-[#F97316] to-[#EA580C] text-white rounded hover:from-[#EA580C] hover:to-[#DC2626] transition-all duration-300 shadow-sm text-sm"
+                        className="flex items-center px-3 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 shadow-sm text-sm border border-[#0EA5E9]"
                       >
                         <RotateCcw className="mr-1" size={14} />
                         重新打印
