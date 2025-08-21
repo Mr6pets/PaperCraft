@@ -5,14 +5,22 @@ interface GridPatternProps {
   width?: number;
   height?: number;
   className?: string;
+  customColors?: {
+    primaryColor: string;
+    secondaryColor: string;
+  };
 }
 
 export const GridPattern: React.FC<GridPatternProps> = ({ 
   styleId, 
   width = 400, 
   height = 300, 
-  className = '' 
+  className = '',
+  customColors
 }) => {
+  const primaryColor = customColors?.primaryColor || '#333';
+  const secondaryColor = customColors?.secondaryColor || '#666';
+  const lightColor = customColors ? `${primaryColor}40` : '#ddd';
   const renderPattern = () => {
     switch (styleId) {
       case 'tian-zi-ge':
@@ -20,9 +28,9 @@ export const GridPattern: React.FC<GridPatternProps> = ({
           <svg width={width} height={height} className={className}>
             <defs>
               <pattern id="tianzi" patternUnits="userSpaceOnUse" width="40" height="40">
-                <rect width="40" height="40" fill="white" stroke="#333" strokeWidth="1"/>
-                <line x1="20" y1="0" x2="20" y2="40" stroke="#666" strokeWidth="0.5"/>
-                <line x1="0" y1="20" x2="40" y2="20" stroke="#666" strokeWidth="0.5"/>
+                <rect width="40" height="40" fill="white" stroke={primaryColor} strokeWidth="1"/>
+                <line x1="20" y1="0" x2="20" y2="40" stroke={secondaryColor} strokeWidth="0.5"/>
+                <line x1="0" y1="20" x2="40" y2="20" stroke={secondaryColor} strokeWidth="0.5"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#tianzi)"/>
@@ -34,11 +42,11 @@ export const GridPattern: React.FC<GridPatternProps> = ({
           <svg width={width} height={height} className={className}>
             <defs>
               <pattern id="mizi" patternUnits="userSpaceOnUse" width="40" height="40">
-                <rect width="40" height="40" fill="white" stroke="#333" strokeWidth="1"/>
-                <line x1="20" y1="0" x2="20" y2="40" stroke="#666" strokeWidth="0.5"/>
-                <line x1="0" y1="20" x2="40" y2="20" stroke="#666" strokeWidth="0.5"/>
-                <line x1="0" y1="0" x2="40" y2="40" stroke="#999" strokeWidth="0.3"/>
-                <line x1="40" y1="0" x2="0" y2="40" stroke="#999" strokeWidth="0.3"/>
+                <rect width="40" height="40" fill="white" stroke={primaryColor} strokeWidth="1"/>
+                <line x1="20" y1="0" x2="20" y2="40" stroke={secondaryColor} strokeWidth="0.5"/>
+                <line x1="0" y1="20" x2="40" y2="20" stroke={secondaryColor} strokeWidth="0.5"/>
+                <line x1="0" y1="0" x2="40" y2="40" stroke={lightColor} strokeWidth="0.3"/>
+                <line x1="40" y1="0" x2="0" y2="40" stroke={lightColor} strokeWidth="0.3"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#mizi)"/>
@@ -123,7 +131,7 @@ export const GridPattern: React.FC<GridPatternProps> = ({
           <svg width={width} height={height} className={className}>
             <defs>
               <pattern id="mathgrid" patternUnits="userSpaceOnUse" width="20" height="20">
-                <rect width="20" height="20" fill="white" stroke="#ddd" strokeWidth="0.5"/>
+                <rect width="20" height="20" fill="white" stroke={lightColor} strokeWidth="0.5"/>
               </pattern>
             </defs>
             <rect width="100%" height="100%" fill="url(#mathgrid)"/>
@@ -181,8 +189,8 @@ export const GridPattern: React.FC<GridPatternProps> = ({
       
       default:
         return (
-          <div className={`bg-gray-100 flex items-center justify-center ${className}`} style={{width, height}}>
-            <span className="text-gray-500">预览不可用</span>
+          <div className={`bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] flex items-center justify-center ${className}`} style={{width, height}}>
+      <span className="text-[#3B82F6]">预览不可用</span>
           </div>
         );
     }

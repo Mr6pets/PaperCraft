@@ -82,20 +82,20 @@ const Gallery = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#2D5A27]"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0EA5E9]"></div>
       </div>
     );
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 sm:space-y-6">
       {/* Header */}
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3 sm:gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-[#2D5A27]">
+          <h1 className="text-xl sm:text-2xl md:text-3xl font-bold bg-gradient-to-r from-[#3B82F6] to-[#9333EA] bg-clip-text text-transparent">
             {currentCategory ? currentCategory.name : '样式库'}
           </h1>
-          <p className="text-gray-600 mt-1">
+          <p className="text-sm sm:text-base text-[#10B981] mt-1">
             {currentCategory 
               ? currentCategory.description 
               : `共 ${filteredStyles.length} 个样式`
@@ -103,37 +103,37 @@ const Gallery = () => {
           </p>
         </div>
         
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4">
           {/* Search */}
-          <div className="relative">
+          <div className="relative flex-1 sm:flex-none">
             <input
               type="text"
               placeholder="搜索样式..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-64 px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D5A27] focus:border-transparent"
+              className="w-full sm:w-64 px-4 py-3 pl-10 border-2 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#A855F7] focus:border-[#3B82F6] text-base min-h-[48px] transition-all"
             />
-            <Search className="absolute left-3 top-2.5 text-gray-400" size={18} />
+            <Search className="absolute left-3 top-3.5 text-[#3B82F6]" size={18} />
           </div>
           
           {/* View Mode Toggle */}
-          <div className="flex bg-gray-100 rounded-lg p-1">
+          <div className="flex bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] rounded-lg p-1">
             <button
               onClick={() => setViewMode('grid')}
-              className={`p-2 rounded-md transition-colors ${
+              className={`p-3 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewMode === 'grid' 
-                  ? 'bg-[#2D5A27] text-white' 
-                  : 'text-gray-600 hover:text-[#2D5A27]'
+                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white' 
+                  : 'text-[#10B981] hover:text-[#3B82F6]'
               }`}
             >
               <Grid size={18} />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-2 rounded-md transition-colors ${
+              className={`p-3 rounded-md transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center ${
                 viewMode === 'list' 
-                  ? 'bg-[#2D5A27] text-white' 
-                  : 'text-gray-600 hover:text-[#2D5A27]'
+                  ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white' 
+                  : 'text-[#10B981] hover:text-[#3B82F6]'
               }`}
             >
               <List size={18} />
@@ -142,22 +142,22 @@ const Gallery = () => {
         </div>
       </div>
 
-      <div className="flex flex-col lg:flex-row gap-6">
+      <div className="flex flex-col lg:flex-row gap-4 sm:gap-6">
         {/* Sidebar Filters */}
-        <div className="lg:w-64 space-y-6">
+        <div className="lg:w-64 space-y-4 sm:space-y-6">
           {/* Category Filter */}
-          <div className="bg-white rounded-lg shadow-md p-4">
-            <h3 className="font-semibold text-[#2D5A27] mb-3 flex items-center">
-              <Filter className="mr-2" size={18} />
+          <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
+            <h3 className="font-semibold bg-gradient-to-r from-[#22C55E] to-[#16A34A] bg-clip-text text-transparent mb-3 flex items-center text-sm sm:text-base">
+              <Filter className="mr-2" size={16} />
               分类筛选
             </h3>
-            <div className="space-y-2">
+            <div className="space-y-1 sm:space-y-2">
               <button
                 onClick={() => handleCategoryFilter(null)}
-                className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
+                className={`w-full text-left px-3 py-3 rounded-md transition-colors min-h-[44px] text-sm sm:text-base ${
                   !selectedCategory && !categoryParam
-                    ? 'bg-[#2D5A27] text-white'
-                    : 'hover:bg-gray-100'
+                    ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white'
+                    : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#EFF6FF]'
                 }`}
               >
                 全部分类
@@ -166,10 +166,10 @@ const Gallery = () => {
                 <button
                   key={category.id}
                   onClick={() => handleCategoryFilter(category.id)}
-                  className={`w-full text-left px-3 py-2 rounded-md transition-colors ${
+                  className={`w-full text-left px-3 py-3 rounded-md transition-colors min-h-[44px] text-sm sm:text-base ${
                     (selectedCategory === category.id || categoryParam === category.id)
-                      ? 'bg-[#2D5A27] text-white'
-                      : 'hover:bg-gray-100'
+                      ? 'bg-gradient-to-r from-[#3B82F6] to-[#2563EB] text-white'
+                      : 'hover:bg-gradient-to-r hover:from-[#F0F9FF] hover:to-[#EFF6FF]'
                   }`}
                 >
                   {category.name}
@@ -180,8 +180,8 @@ const Gallery = () => {
 
           {/* Tags Filter */}
           {allTags.length > 0 && (
-            <div className="bg-white rounded-lg shadow-md p-4">
-              <h3 className="font-semibold text-[#2D5A27] mb-3">
+            <div className="bg-white rounded-lg shadow-md p-3 sm:p-4">
+              <h3 className="font-semibold bg-gradient-to-r from-[#F97316] to-[#EA580C] bg-clip-text text-transparent mb-3 text-sm sm:text-base">
                 标签筛选
               </h3>
               <div className="flex flex-wrap gap-2">
@@ -189,10 +189,10 @@ const Gallery = () => {
                   <button
                     key={tag}
                     onClick={() => handleTagToggle(tag)}
-                    className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    className={`px-3 py-2 rounded-full text-sm transition-colors min-h-[36px] ${
                       selectedTags.includes(tag)
-                        ? 'bg-[#2D5A27] text-white'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        ? 'bg-gradient-to-r from-[#A855F7] to-[#9333EA] text-white'
+                        : 'bg-gradient-to-r from-[#F3E8FF] to-[#EDE9FE] text-[#7C3AED] hover:from-[#E9D5FF] hover:to-[#DDD6FE]'
                     }`}
                   >
                     {tag}
@@ -202,7 +202,7 @@ const Gallery = () => {
               {selectedTags.length > 0 && (
                 <button
                   onClick={() => setSelectedTags([])}
-                  className="mt-3 text-sm text-[#2D5A27] hover:underline"
+                  className="mt-3 text-sm text-[#0EA5E9] hover:underline"
                 >
                   清除标签筛选
                 </button>
@@ -215,13 +215,13 @@ const Gallery = () => {
         <div className="flex-1">
           {filteredStyles.length === 0 ? (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">暂无匹配的样式</p>
+              <p className="text-[#10B981] text-lg">暂无匹配的样式</p>
             </div>
           ) : (
             <div className={`${
               viewMode === 'grid' 
-                ? 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6'
-                : 'space-y-4'
+                ? 'grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6'
+                : 'space-y-3 sm:space-y-4'
             }`}>
               {filteredStyles.map((style) => (
                 <Link
@@ -234,7 +234,7 @@ const Gallery = () => {
                   <div className={`${
                     viewMode === 'grid' 
                       ? 'aspect-[4/3]' 
-                      : 'w-32 h-24 flex-shrink-0'
+                      : 'w-24 h-18 sm:w-32 sm:h-24 flex-shrink-0'
                   } overflow-hidden`}>
                     <img
                       src={style.thumbnailUrl}
@@ -243,20 +243,20 @@ const Gallery = () => {
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.src = `data:image/svg+xml,${encodeURIComponent(
-                          `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><rect width="300" height="225" fill="#F8F6F0"/><text x="150" y="120" text-anchor="middle" fill="#2D5A27" font-size="18">${style.name}</text></svg>`
+                          `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><rect width="300" height="225" fill="#F0F9FF"/><text x="150" y="120" text-anchor="middle" fill="#1E293B" font-size="18">${style.name}</text></svg>`
                         )}`;
                       }}
                     />
                   </div>
-                  <div className="p-4 flex-1">
-                    <h3 className="font-semibold text-[#2D5A27] mb-2 group-hover:text-[#3D6A37] transition-colors">
+                  <div className="p-3 sm:p-4 flex-1">
+                    <h3 className="font-semibold text-[#1E293B] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base leading-tight">
                       {style.name}
                     </h3>
                     <div className="flex flex-wrap gap-1">
-                      {style.tags.slice(0, viewMode === 'list' ? 5 : 3).map((tag) => (
+                      {style.tags.slice(0, viewMode === 'list' ? (window.innerWidth < 640 ? 3 : 5) : 3).map((tag) => (
                         <span
                           key={tag}
-                          className="px-2 py-1 bg-[#F4C2C2] text-[#2D5A27] text-xs rounded-full"
+                          className="px-2 py-1 bg-[#ECFDF5] text-[#059669] text-xs rounded-full"
                         >
                           {tag}
                         </span>

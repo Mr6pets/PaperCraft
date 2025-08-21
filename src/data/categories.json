@@ -1,50 +1,42 @@
 [
   {
-    "id": "floral",
-    "name": "花纹",
-    "description": "各种花卉和植物图案的装饰纸张",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20floral%20icon%20design%20with%20simple%20flower%20petals%20and%20leaves%20in%20green%20color%20scheme&image_size=square",
+    "id": "practice",
+    "name": "练字网格",
+    "description": "各种练字和学习用的网格纸张模板",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20grid%20paper%20icon%20with%20square%20grid%20lines%20for%20writing%20practice%20in%20vibrant%20blue%20color&image_size=square",
     "sortOrder": 1,
     "createdAt": "2024-01-15T10:00:00Z"
   },
   {
-    "id": "geometric",
-    "name": "几何",
-    "description": "几何图形和抽象图案的现代纸张",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20geometric%20icon%20with%20triangles%20circles%20and%20squares%20in%20modern%20style%20green%20color&image_size=square",
+    "id": "lines",
+    "name": "线条图案",
+    "description": "简洁的线条和分割线设计，适合文档和表格使用",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20line%20pattern%20icon%20with%20simple%20horizontal%20and%20vertical%20lines%20in%20bright%20green%20color&image_size=square",
     "sortOrder": 2,
     "createdAt": "2024-01-15T10:00:00Z"
   },
   {
-    "id": "holiday",
-    "name": "节日主题",
-    "description": "适合各种节日庆典的主题纸张",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20holiday%20celebration%20icon%20with%20stars%20and%20festive%20elements%20in%20warm%20colors&image_size=square",
+    "id": "frames",
+    "name": "简约边框",
+    "description": "各种简洁的边框和框线设计，突出内容区域",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20frame%20border%20icon%20with%20simple%20rectangular%20outline%20in%20vibrant%20purple%20color&image_size=square",
     "sortOrder": 3,
     "createdAt": "2024-01-15T10:00:00Z"
   },
   {
-    "id": "gradient",
-    "name": "纯色渐变",
-    "description": "简约的纯色和渐变效果纸张",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20gradient%20icon%20with%20smooth%20color%20transition%20from%20light%20to%20dark%20green&image_size=square",
+    "id": "technical",
+    "name": "技术图表",
+    "description": "工程图纸、技术文档和图表用的专业线性模板",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20technical%20diagram%20icon%20with%20engineering%20lines%20and%20measurements%20in%20bright%20orange%20color&image_size=square",
     "sortOrder": 4,
     "createdAt": "2024-01-15T10:00:00Z"
   },
   {
-    "id": "vintage",
-    "name": "复古风格",
-    "description": "怀旧和复古风格的装饰纸张",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20vintage%20icon%20with%20classic%20ornamental%20patterns%20in%20sepia%20and%20brown%20tones&image_size=square",
+    "id": "tables",
+    "name": "表格模板",
+    "description": "各种表格线和数据记录用的线性模板",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20table%20grid%20icon%20with%20rows%20and%20columns%20lines%20in%20vibrant%20pink%20color&image_size=square",
     "sortOrder": 5,
-    "createdAt": "2024-01-15T10:00:00Z"
-  },
-  {
-    "id": "practice",
-    "name": "练字网格",
-    "description": "各种练字和学习用的网格纸张模板",
-    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20grid%20paper%20icon%20with%20square%20grid%20lines%20for%20writing%20practice%20in%20green%20color&image_size=square",
-    "sortOrder": 6,
     "createdAt": "2024-01-15T10:00:00Z"
   }
 ]
