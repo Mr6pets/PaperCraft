@@ -185,5 +185,71 @@
     "tags": ["清单", "任务", "管理", "勾选"],
     "createdAt": "2024-01-16T04:30:00Z",
     "updatedAt": "2024-01-16T04:30:00Z"
+  },
+  {
+    "id": "chinese-chess",
+    "name": "象棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20chinese%20chess%20xiangqi%20board%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20chinese%20chess%20xiangqi%20board%20template%20minimalist%20line%20drawing%20clean%20geometric%20pattern%20with%20river%20boundary&image_size=portrait_4_3",
+    "tags": ["象棋", "中国象棋", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T05:00:00Z",
+    "updatedAt": "2024-01-16T05:00:00Z"
+  },
+  {
+    "id": "auto-chess",
+    "name": "自走棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20auto%20chess%20board%20hexagonal%20grid%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20auto%20chess%20board%20template%20hexagonal%20grid%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=portrait_4_3",
+    "tags": ["自走棋", "策略", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T05:30:00Z",
+    "updatedAt": "2024-01-16T05:30:00Z"
+  },
+  {
+    "id": "flying-chess",
+    "name": "飞行棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20flying%20chess%20board%20cross%20shaped%20path%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20flying%20chess%20board%20template%20cross%20path%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=portrait_4_3",
+    "tags": ["飞行棋", "家庭游戏", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T06:00:00Z",
+    "updatedAt": "2024-01-16T06:00:00Z"
+  },
+  {
+    "id": "go-board",
+    "name": "围棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20go%20board%20weiqi%2019x19%20grid%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20go%20board%20weiqi%20template%2019x19%20grid%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=portrait_4_3",
+    "tags": ["围棋", "五子棋", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T06:30:00Z",
+    "updatedAt": "2024-01-16T06:30:00Z"
+  },
+  {
+    "id": "international-chess",
+    "name": "国际象棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20international%20chess%20board%208x8%20checkered%20pattern%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20international%20chess%20board%20template%208x8%20checkered%20squares%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=portrait_4_3",
+    "tags": ["国际象棋", "西洋棋", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T07:00:00Z",
+    "updatedAt": "2024-01-16T07:00:00Z"
+  },
+  {
+    "id": "checkers-board",
+    "name": "跳棋棋盘",
+    "categoryId": "games",
+    "useIcon": true,
+    "thumbnailUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20checkers%20board%20star%20shaped%20pattern%20six%20triangular%20zones%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=square",
+    "fullImageUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=simple%20black%20lines%20on%20white%20background%20checkers%20board%20template%20star%20shaped%20grid%20six%20triangular%20areas%20minimalist%20line%20drawing%20clean%20geometric%20pattern&image_size=portrait_4_3",
+    "tags": ["跳棋", "六角跳棋", "棋盘", "游戏"],
+    "createdAt": "2024-01-16T07:30:00Z",
+    "updatedAt": "2024-01-16T07:30:00Z"
   }
 ]

@@ -38,5 +38,13 @@
     "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20table%20grid%20icon%20with%20rows%20and%20columns%20lines%20in%20vibrant%20pink%20color&image_size=square",
     "sortOrder": 5,
     "createdAt": "2024-01-15T10:00:00Z"
+  },
+  {
+    "id": "games",
+    "name": "游戏棋盘",
+    "description": "各种棋类游戏和桌游的棋盘模板",
+    "iconUrl": "https://trae-api-sg.mchost.guru/api/ide/v1/text_to_image?prompt=minimalist%20chess%20board%20icon%20with%20checkered%20pattern%20and%20game%20pieces%20silhouette%20in%20vibrant%20red%20color&image_size=square",
+    "sortOrder": 6,
+    "createdAt": "2024-01-15T10:00:00Z"
   }
 ]
