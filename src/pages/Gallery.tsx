@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { Filter, Grid, List, Search } from 'lucide-react';
+import { Filter, Grid, List, Search, Heart } from 'lucide-react';
+import { useFavorites } from '../hooks/useFavorites';
+import { useAuth } from '../hooks/useAuth';
 import { Category, Style } from '../types';
 import { getCategories, getStyles, getCategoryById } from '../services/dataService';
 import { useAppStore } from '../store';
+import StyleIcon from '../components/StyleIcon';
 
 const Gallery = () => {
   const { category: categoryParam } = useParams();
@@ -15,6 +18,8 @@ const Gallery = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const { selectedCategory, setSelectedCategory } = useAppStore();
+  const { user } = useAuth();
+  const { isFavorite, toggleFavorite } = useFavorites();
 
   // 获取所有标签
   const allTags = Array.from(new Set(styles.flatMap(style => style.tags)));
@@ -184,15 +189,15 @@ const Gallery = () => {
               <h3 className="font-semibold text-[#1E293B] mb-3 text-sm sm:text-base">
                 标签筛选
               </h3>
-              <div className="flex flex-wrap gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 p-2 bg-gradient-to-br from-[#F8FAFC] to-[#F0F9FF] rounded-lg border border-[#E5E7EB]">
                 {allTags.map((tag) => (
                   <button
                     key={tag}
                     onClick={() => handleTagToggle(tag)}
-                    className={`px-3 py-2 rounded-full text-sm transition-colors min-h-[36px] ${
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 min-h-[40px] flex items-center justify-center text-center ${
                       selectedTags.includes(tag)
-                        ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white'
-                        : 'bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] hover:from-[#E0F2FE] hover:to-[#D1FAE5] border border-[#0EA5E9]'
+                        ? 'bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white shadow-md transform scale-105'
+                        : 'bg-white text-[#0EA5E9] hover:bg-gradient-to-r hover:from-[#E0F2FE] hover:to-[#D1FAE5] border border-[#0EA5E9] hover:shadow-sm hover:transform hover:scale-102'
                     }`}
                   >
                     {tag}
@@ -235,18 +240,46 @@ const Gallery = () => {
                     viewMode === 'grid' 
                       ? 'aspect-[4/3]' 
                       : 'w-24 h-18 sm:w-32 sm:h-24 flex-shrink-0'
-                  } overflow-hidden`}>
-                    <img
-                      src={style.thumbnailUrl}
-                      alt={style.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      onError={(e) => {
-                        const target = e.target as HTMLImageElement;
-                        target.src = `data:image/svg+xml,${encodeURIComponent(
-                          `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><rect width="300" height="225" fill="#F0F9FF"/><text x="150" y="120" text-anchor="middle" fill="#1E293B" font-size="18">${style.name}</text></svg>`
-                        )}`;
-                      }}
-                    />
+                  } overflow-hidden relative bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] flex items-center justify-center`}>
+                    {(style as any).useIcon ? (
+                      <StyleIcon
+                        styleId={style.id}
+                        className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <img
+                        src={style.thumbnailUrl}
+                        alt={style.name}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          const target = e.target as HTMLImageElement;
+                          target.src = `data:image/svg+xml,${encodeURIComponent(
+                            `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><rect width="300" height="225" fill="#F0F9FF"/><text x="150" y="120" text-anchor="middle" fill="#1E293B" font-size="18">${style.name}</text></svg>`
+                          )}`;
+                        }}
+                      />
+                    )}
+                    {/* 收藏按钮 */}
+                    {user && (
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          toggleFavorite(style);
+                        }}
+                        className={`absolute top-2 right-2 p-2 rounded-full transition-all duration-200 ${
+                          isFavorite(style.id)
+                            ? 'bg-red-500 text-white shadow-lg'
+                            : 'bg-white/80 text-gray-600 hover:bg-white hover:text-red-500'
+                        }`}
+                        title={isFavorite(style.id) ? '取消收藏' : '添加收藏'}
+                      >
+                        <Heart
+                          size={16}
+                          className={isFavorite(style.id) ? 'fill-current' : ''}
+                        />
+                      </button>
+                    )}
                   </div>
                   <div className="p-3 sm:p-4 flex-1">
                     <h3 className="font-semibold text-[#0EA5E9] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base leading-tight">

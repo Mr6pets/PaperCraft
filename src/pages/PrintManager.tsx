@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Printer, Clock, CheckCircle, XCircle, Trash2, RotateCcw, Eye } from 'lucide-react';
+import { Printer, Clock, CheckCircle, XCircle, Trash2, RotateCcw, Eye, History, Calendar } from 'lucide-react';
 import { toast } from 'sonner';
 import { PrintJob, PrintHistory } from '../types';
 import { useAppStore } from '../store';
+import { usePrintHistory } from '../hooks/usePrintHistory';
+import { useAuth } from '../hooks/useAuth';
 
 const PrintManager = () => {
   const { printQueue, printHistory, updatePrintJob, removePrintJob, addToPrintHistory } = useAppStore();
   const [activeTab, setActiveTab] = useState<'queue' | 'history'>('queue');
   const [printerStatus, setPrinterStatus] = useState<'connected' | 'disconnected' | 'connecting'>('disconnected');
+  const { user } = useAuth();
+  const { printHistory: userPrintHistory, loading: historyLoading, deletePrintRecord, clearPrintHistory, getGroupedPrintHistory, getPrintStats } = usePrintHistory();
 
   // 模拟打印机连接
   const handleConnectPrinter = async () => {
@@ -128,6 +132,9 @@ const PrintManager = () => {
     }
   };
 
+  const groupedHistory = getGroupedPrintHistory();
+  const printStats = getPrintStats();
+
   return (
     <div className="space-y-6">
       {/* Header */}
@@ -177,26 +184,28 @@ const PrintManager = () => {
       </div>
 
       {/* Tabs */}
-      <div className="flex bg-[#F0F9FF] rounded-lg p-1">
+      <div className="flex space-x-1 bg-gray-100 rounded-lg p-1">
         <button
           onClick={() => setActiveTab('queue')}
-          className={`flex-1 py-2 px-4 rounded-md transition-colors ${
+          className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
             activeTab === 'queue'
-              ? 'bg-[#0EA5E9] text-white'
-            : 'text-[#0EA5E9] hover:text-[#0284C7]'
+              ? 'bg-white text-[#0EA5E9] shadow-sm'
+              : 'text-gray-600 hover:text-[#0EA5E9]'
           }`}
         >
+          <Printer className="mr-2" size={16} />
           打印队列 ({printQueue.length})
         </button>
         <button
           onClick={() => setActiveTab('history')}
-          className={`flex-1 py-2 px-4 rounded-md transition-colors ${
+          className={`flex items-center px-4 py-2 rounded-md text-sm font-medium transition-colors ${
             activeTab === 'history'
-              ? 'bg-[#0EA5E9] text-white'
-            : 'text-[#0EA5E9] hover:text-[#0284C7]'
+              ? 'bg-white text-[#0EA5E9] shadow-sm'
+              : 'text-gray-600 hover:text-[#0EA5E9]'
           }`}
         >
-          打印历史 ({printHistory.length})
+          <History className="mr-2" size={16} />
+          打印历史 {user ? `(${userPrintHistory.length})` : ''}
         </button>
       </div>
 
@@ -295,55 +304,122 @@ const PrintManager = () => {
           )}
         </div>
       ) : (
-        <div className="bg-white rounded-lg shadow-md">
-          {printHistory.length === 0 ? (
-            <div className="text-center py-12">
-              <Clock className="mx-auto text-[#0EA5E9] mb-4" size={48} />
-              <p className="text-[#0EA5E9] text-lg">暂无打印历史</p>
-            </div>
-          ) : (
-            <div className="divide-y divide-gray-200">
-              {printHistory.map((record) => (
-                <div key={record.id} className="p-6">
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-4">
-                      <CheckCircle className="text-green-500" size={20} />
-                      <div>
-                        <h3 className="font-semibold text-[#0EA5E9]">
-                          样式 ID: {record.styleId}
-                        </h3>
-                        <p className="text-sm text-[#10B981]">
-                          {record.paperSize} · {record.printSettings.quality} · {record.printSettings.copies}份
-                        </p>
-                        <p className="text-xs text-[#0EA5E9]">
-                          {new Date(record.createdAt).toLocaleString()}
-                        </p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-center gap-2">
-                      <Link
-                        to={`/preview/${record.styleId}`}
-                        className="p-2 text-[#0EA5E9] hover:text-[#0284C7] transition-colors"
-                        title="查看样式"
-                      >
-                        <Eye size={18} />
-                      </Link>
-                      
-                      <button
-                        onClick={() => handleReprintFromHistory(record)}
-                        className="flex items-center px-3 py-1 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 shadow-sm text-sm border border-[#0EA5E9]"
-                      >
-                        <RotateCcw className="mr-1" size={14} />
-                        重新打印
-                      </button>
-                    </div>
+        /* Print History */
+        !user ? (
+          <div className="text-center py-12">
+            <History className="mx-auto mb-4 text-gray-400" size={64} />
+            <h2 className="text-xl font-semibold text-[#1E293B] mb-2">请先登录</h2>
+            <p className="text-[#64748B] mb-6">登录后即可查看您的打印历史</p>
+            <a
+              href="/auth"
+              className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white rounded-lg hover:from-[#0284C7] hover:to-[#059669] transition-all duration-300"
+            >
+              立即登录
+            </a>
+          </div>
+        ) : historyLoading ? (
+          <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-[#0EA5E9]"></div>
+          </div>
+        ) : userPrintHistory.length === 0 ? (
+          <div className="text-center py-12">
+            <History className="mx-auto mb-4 text-gray-400" size={64} />
+            <h2 className="text-xl font-semibold text-[#1E293B] mb-2">暂无打印历史</h2>
+            <p className="text-[#64748B]">开始打印样式后，历史记录将显示在这里</p>
+          </div>
+        ) : (
+          <div className="space-y-6">
+            {/* Print Statistics */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <div className="flex items-center">
+                  <Printer className="text-[#0EA5E9]" size={24} />
+                  <div className="ml-3">
+                    <p className="text-sm text-[#64748B]">总打印次数</p>
+                    <p className="text-xl font-semibold text-[#1E293B]">{printStats.totalPrints}</p>
                   </div>
                 </div>
-              ))}
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <div className="flex items-center">
+                  <CheckCircle className="text-green-500" size={24} />
+                  <div className="ml-3">
+                    <p className="text-sm text-[#64748B]">不同样式</p>
+                    <p className="text-xl font-semibold text-[#1E293B]">{printStats.uniqueStyles}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <div className="flex items-center">
+                  <Calendar className="text-purple-500" size={24} />
+                  <div className="ml-3">
+                    <p className="text-sm text-[#64748B]">常用纸张</p>
+                    <p className="text-xl font-semibold text-[#1E293B]">{printStats.mostUsedPaperSize}</p>
+                  </div>
+                </div>
+              </div>
+              <div className="bg-white rounded-lg shadow-md p-4">
+                <div className="flex items-center">
+                  <History className="text-orange-500" size={24} />
+                  <div className="ml-3">
+                    <p className="text-sm text-[#64748B]">最近打印</p>
+                    <p className="text-xl font-semibold text-[#1E293B]">
+                      {userPrintHistory.length > 0 ? new Date(userPrintHistory[0].created_at).toLocaleDateString() : '-'}
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          )}
-        </div>
+
+            {/* Grouped History */}
+            {Object.entries(groupedHistory).map(([date, records]) => (
+              <div key={date} className="bg-white rounded-lg shadow-md overflow-hidden">
+                <div className="bg-gray-50 px-4 py-3 border-b">
+                  <h3 className="text-sm font-medium text-[#1E293B]">{date}</h3>
+                </div>
+                <div className="divide-y divide-gray-200">
+                  {records.map((record) => (
+                    <div key={record.id} className="p-4 hover:bg-gray-50 transition-colors">
+                      <div className="flex items-center justify-between">
+                        <div className="flex-1">
+                          <div className="flex items-center space-x-3">
+                            <div className="flex-shrink-0">
+                              <Printer className="text-[#0EA5E9]" size={20} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="text-sm font-medium text-[#1E293B] truncate">
+                                {record.style_name}
+                              </p>
+                              <p className="text-xs text-[#64748B]">
+                                {record.paper_size} • {record.print_settings.quality} • 
+                                {new Date(record.created_at).toLocaleTimeString()}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-center space-x-2">
+                          <a
+                            href={`/preview/${record.style_id}`}
+                            className="text-[#0EA5E9] hover:text-[#0284C7] text-sm"
+                          >
+                            重新打印
+                          </a>
+                          <button
+                            onClick={() => deletePrintRecord(record.id)}
+                            className="text-red-500 hover:text-red-700 p-1"
+                            title="删除记录"
+                          >
+                            <Trash2 size={16} />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        )
       )}
     </div>
   );

@@ -6,6 +6,8 @@ import { Style, PaperSize, PrintSettings, PrintJob, PageMargins, HeaderFooter, C
 import { getStyleById, getRelatedStyles } from '../services/dataService';
 import { useAppStore } from '../store';
 import GridPattern from '../components/GridPatterns';
+import { usePrintHistory } from '../hooks/usePrintHistory';
+import { useAuth } from '../hooks/useAuth';
 
 const Preview = () => {
   const { styleId } = useParams<{ styleId: string }>();
@@ -48,6 +50,8 @@ const Preview = () => {
     }
   });
   const { addToPrintQueue } = useAppStore();
+  const { addPrintRecord } = usePrintHistory();
+  const { user } = useAuth();
 
   const paperSizes = [
     { value: 'A4', label: 'A4 (210×297mm)', width: 210, height: 297 },
@@ -97,7 +101,7 @@ const Preview = () => {
     setRotation(prev => (prev + 90) % 360);
   };
 
-  const handlePrint = () => {
+  const handlePrint = async () => {
     if (!style) return;
 
     const printJob: PrintJob = {
@@ -112,6 +116,12 @@ const Preview = () => {
     };
 
     addToPrintQueue(printJob);
+    
+    // 如果用户已登录，添加到打印历史
+    if (user) {
+      await addPrintRecord(style.id, style.name, paperSize, printSettings);
+    }
+    
     toast.success('已添加到打印队列');
     
     // 使用CSS媒体查询打印预览区域

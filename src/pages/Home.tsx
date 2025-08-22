@@ -1,15 +1,23 @@
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Sparkles, Heart, Printer, Clock } from 'lucide-react';
+import { useAuth } from '../hooks/useAuth';
+import { useFavorites } from '../hooks/useFavorites';
+import { usePrintHistory } from '../hooks/usePrintHistory';
 import { Category, Style } from '../types';
 import { getCategories, getPopularStyles } from '../services/dataService';
 import { useAppStore } from '../store';
+import StyleIcon from '../components/StyleIcon';
 
 export default function Home() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [popularStyles, setPopularStyles] = useState<Style[]>([]);
   const [loading, setLoading] = useState(true);
   const { setSelectedCategory } = useAppStore();
+  const { user } = useAuth();
+  const { favorites } = useFavorites();
+  const { printHistory, getPrintStats } = usePrintHistory();
+  const printStats = getPrintStats();
 
   useEffect(() => {
     const loadData = async () => {
@@ -48,19 +56,36 @@ export default function Home() {
       <section className="text-center py-8 sm:py-12">
         <div className="flex items-center justify-center mb-4 sm:mb-6">
           <Sparkles className="text-[#0EA5E9] mr-2 sm:mr-3" size={24} />
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E293B] leading-tight">PaperCraft 纸艺工坊</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#1E293B] leading-tight">
+            {user ? `欢迎回来，${user.user_metadata?.display_name || '创作者'}` : 'PaperCraft 纸艺工坊'}
+          </h1>
           <Sparkles className="text-[#0EA5E9] ml-2 sm:ml-3" size={24} />
         </div>
         <p className="text-base sm:text-lg md:text-xl text-[#0EA5E9] max-w-3xl mx-auto mb-6 sm:mb-8 px-4 text-center leading-relaxed">
-          无需购买各种样式纸张，选择心仪的模板，实时预览效果，一键打印专属装饰纸张
+          {user ? (
+            `你已收藏 ${favorites.length} 个样式，完成 ${printStats.totalPrints} 次打印。继续探索更多精彩内容！`
+          ) : (
+            '无需购买各种样式纸张，选择心仪的模板，实时预览效果，一键打印专属装饰纸张'
+          )}
         </p>
-        <Link
-          to="/gallery"
-          className="inline-flex items-center px-6 sm:px-8 py-3 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded-lg hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 font-medium min-h-[48px] shadow-lg hover:shadow-xl border border-[#0EA5E9]"
-        >
-          开始探索
-          <ArrowRight className="ml-2" size={18} />
-        </Link>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <Link
+            to="/gallery"
+            className="inline-flex items-center px-6 sm:px-8 py-3 bg-gradient-to-r from-[#F0F9FF] to-[#ECFDF5] text-[#0EA5E9] rounded-lg hover:from-[#E0F2FE] hover:to-[#D1FAE5] transition-all duration-300 font-medium min-h-[48px] shadow-lg hover:shadow-xl border border-[#0EA5E9]"
+          >
+            {user ? '继续探索' : '开始探索'}
+            <ArrowRight className="ml-2" size={18} />
+          </Link>
+          {user && (
+            <Link
+              to="/favorites"
+              className="inline-flex items-center px-6 sm:px-8 py-3 border-2 border-[#0EA5E9] text-[#0EA5E9] rounded-lg hover:bg-[#0EA5E9] hover:text-white transition-all duration-300 font-medium min-h-[48px]"
+            >
+              <Heart className="mr-2" size={18} />
+              我的收藏
+            </Link>
+          )}
+        </div>
       </section>
 
       {/* Categories Section */}
@@ -117,18 +142,25 @@ export default function Home() {
               to={`/preview/${style.id}`}
               className="group bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] rounded-xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden hover:scale-105"
             >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={style.thumbnailUrl}
-                  alt={style.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.src = `data:image/svg+xml,${encodeURIComponent(
-                      `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><defs><linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" /><stop offset="100%" style="stop-color:#ECFDF5;stop-opacity:1" /></linearGradient></defs><rect width="300" height="225" fill="url(#bgGrad)"/><text x="150" y="120" text-anchor="middle" fill="#3B82F6" font-size="18">${style.name}</text></svg>`
-                    )}`;
-                  }}
-                />
+              <div className="aspect-[4/3] overflow-hidden bg-gradient-to-br from-[#F0F9FF] to-[#ECFDF5] flex items-center justify-center">
+                {(style as any).useIcon ? (
+                  <StyleIcon
+                    styleId={style.id}
+                    className="w-full h-full group-hover:scale-105 transition-transform duration-300"
+                  />
+                ) : (
+                  <img
+                    src={style.thumbnailUrl}
+                    alt={style.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.src = `data:image/svg+xml,${encodeURIComponent(
+                        `<svg xmlns="http://www.w3.org/2000/svg" width="300" height="225" viewBox="0 0 300 225"><defs><linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" /><stop offset="100%" style="stop-color:#ECFDF5;stop-opacity:1" /></linearGradient></defs><rect width="300" height="225" fill="url(#bgGrad)"/><text x="150" y="120" text-anchor="middle" fill="#3B82F6" font-size="18">${style.name}</text></svg>`
+                      )}`;
+                    }}
+                  />
+                )}
               </div>
               <div className="p-3 sm:p-4">
                 <h3 className="font-semibold text-[#0EA5E9] mb-2 group-hover:text-[#0284C7] transition-colors text-sm sm:text-base">

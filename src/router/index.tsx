@@ -5,6 +5,9 @@ import Gallery from '../pages/Gallery';
 import Preview from '../pages/Preview';
 import PrintManager from '../pages/PrintManager';
 import Search from '../pages/Search';
+import Auth from '../pages/Auth';
+import Favorites from '../pages/Favorites';
+import Settings from '../pages/Settings';
 
 export const router = createBrowserRouter([
   {
@@ -35,6 +38,18 @@ export const router = createBrowserRouter([
         path: 'search',
         element: <Search />,
       },
+      {
+         path: 'auth',
+         element: <Auth />,
+       },
+       {
+         path: 'favorites',
+         element: <Favorites />,
+       },
+       {
+         path: 'settings',
+         element: <Settings />,
+       },
     ],
   },
 ]);

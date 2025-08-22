@@ -1,12 +1,14 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Search, Home, Image, Printer, Menu } from 'lucide-react';
+import { Search, Home, Image, Printer, Menu, User, LogOut, Heart, Settings } from 'lucide-react';
 import { useState } from 'react';
 import { useAppStore } from '../store';
+import { useAuth } from '../hooks/useAuth';
 
 const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { searchQuery, setSearchQuery } = useAppStore();
+  const { user, signOut, loading } = useAuth();
 
   const navItems = [
     { path: '/', label: '主页', icon: Home },
@@ -70,6 +72,51 @@ const Navbar = () => {
               <Search className="absolute left-3 top-2.5 text-[#0EA5E9]" size={18} />
             </div>
           </form>
+
+          {/* 用户认证区域 */}
+          <div className="hidden md:flex items-center ml-4 pl-4 border-l border-[#0EA5E9]">
+            {loading ? (
+              <div className="w-8 h-8 rounded-full bg-gray-200 animate-pulse"></div>
+            ) : user ? (
+              <div className="flex items-center space-x-3">
+                 <Link
+                   to="/favorites"
+                   className="flex items-center text-[#0EA5E9] hover:text-[#0284C7] transition-colors"
+                   title="我的收藏"
+                 >
+                   <Heart size={16} />
+                 </Link>
+                 <Link
+                   to="/settings"
+                   className="flex items-center text-[#0EA5E9] hover:text-[#0284C7] transition-colors"
+                   title="设置"
+                 >
+                   <Settings size={16} />
+                 </Link>
+                 <div className="flex items-center space-x-1">
+                   <User size={16} className="text-[#0EA5E9]" />
+                   <span className="text-sm text-[#0EA5E9]">
+                     {user.user_metadata?.username || user.email?.split('@')[0]}
+                   </span>
+                 </div>
+                 <button
+                   onClick={signOut}
+                   className="flex items-center px-2 py-1 text-sm text-[#64748B] hover:text-[#0EA5E9] transition-colors"
+                   title="退出登录"
+                 >
+                   <LogOut size={16} />
+                 </button>
+               </div>
+            ) : (
+              <Link
+                to="/auth"
+                className="flex items-center px-3 py-2 bg-gradient-to-r from-[#0EA5E9] to-[#10B981] text-white rounded-md text-sm font-medium hover:from-[#0284C7] hover:to-[#059669] transition-all duration-300"
+              >
+                <User className="mr-2" size={16} />
+                <span>登录</span>
+              </Link>
+            )}
+          </div>
 
           {/* Mobile Menu Button */}
           <button
