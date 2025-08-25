@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         element: <LazyWrapper><Gallery /></LazyWrapper>,
       },
       {
-        path: 'preview/:id',
+        path: 'preview/:styleId',
         element: <LazyWrapper><Preview /></LazyWrapper>,
       },
       {
